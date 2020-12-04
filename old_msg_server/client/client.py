@@ -34,7 +34,7 @@ class Client:
             try:
                 msg = self.client_socket.recv(self.BUFSIZ).decode()
 
-                # make sure memory is safe to access
+                
                 self.lock.acquire()
                 self.messages.append(msg)
                 self.lock.release()
@@ -64,7 +64,7 @@ class Client:
         """
         messages_copy = self.messages[:]
 
-        # make sure memory is safe to access
+      
         self.lock.acquire()
         self.messages = []
         self.lock.release()

@@ -13,7 +13,12 @@ async function add_messages(msg, scroll){
     if (global_name == msg.name){
       content = '<div class="container darker">' + '<b style="color:#000" class="left">'+msg.name+'</b><p>' + msg.message +'</p><span class="time-left">' + n + '</span></div>'
     }
-    // update div
+    
+    
+    
+    
+    
+    //updated div
     var messageDiv = document.getElementById("messages")
     messageDiv.innerHTML += content
   }
@@ -106,27 +111,22 @@ var socket = io.connect('http://' + document.domain + ':' + location.port);
     var form = $( 'form#msgForm' ).on( 'submit', async function( e ) {
       e.preventDefault()
 
-      // get input from message box
+     
       let msg_input = document.getElementById("msg")
       let user_input = msg_input.value
       let user_name = await load_name()
 
-      // clear msg box value
+      
       msg_input.value = ""
 
-      // send message to other users
+      
       socket.emit( 'event', {
         message : user_input,
         name: user_name
       } )
     } )
   } )
-  /*socket.on( 'disconnect', async function( msg ) {
-      var usr_name = await load_name()
-      socket.emit( 'event', {
-      message: usr_name + ' just left the server...',
-    } )
-  })*/
+ 
   socket.on( 'message response', function( msg ) {
     add_messages(msg, true)
   })

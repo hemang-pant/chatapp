@@ -4,14 +4,14 @@ import time
 from application import create_app
 from application.database import DataBase
 import config
-from flask_ngrok import run_with_ngrok
+#from flask_ngrok import run_with_ngrok
 
 
 
 app = create_app()
 socketio = SocketIO(app)  
 
-#
+
 # run_with_ngrok(app) 
 @socketio.on('event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):

@@ -14,11 +14,11 @@ def update_messages():
     msgs = []
     run = True
     while run:
-        time.sleep(0.1)  # update every 1/10 of a second
-        new_messages = c1.get_messages()  # get any new messages from client
-        msgs.extend(new_messages)  # add to local list of messages
+        time.sleep(0.1)  
+        new_messages = c1.get_messages()  
+        msgs.extend(new_messages)  
 
-        for msg in new_messages:  # display new messages
+        for msg in new_messages:  
             print(msg)
 
             if msg == "{quit}":
