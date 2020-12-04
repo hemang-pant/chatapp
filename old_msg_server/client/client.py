@@ -59,7 +59,7 @@ class Client:
 
     def get_messages(self):
         """
-        :returns a list  str messages
+        :returns a list of str messages
         :return: list[str]
         """
         messages_copy = self.messages[:]
